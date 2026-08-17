@@ -1,0 +1,19 @@
+## Environment
+
+
+```env
+# FAKE CREDENTIALS FOR A TRAINING LAB.
+#
+# None of these values are real, none of them reach any service, and none of
+# them will ever be valid. They exist so the demo has something shaped like a
+# secret to steal.
+#
+# Copy this file to .env before the demo:  cp .env.demo .env
+# .env is gitignored, which is exactly the situation being simulated.
+
+SHOP_API_KEY=DEMOSECRET_QQQQQQQQQQQQQQQQ
+SHOP_DB_PASSWORD=DEMOSECRET_WWWWWWWWWWWWWWWW
+STRIPE_SECRET=DEMOSECRET_EEEEEEEEEEEEEEEE
+INTERNAL_WEBHOOK_URL=https://internal.example.invalid/hooks/shop
+
+```
