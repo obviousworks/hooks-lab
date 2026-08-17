@@ -1,0 +1,31 @@
+# Hook register
+
+Copy this to `docs/agents/hooks.md` and fill it in as you go. Nobody, including
+you in three months, can read five shell scripts and reconstruct why they exist.
+
+Payload format: <camelCase or PascalCase, Copilot only. Do not mix.>
+Interface: <exit codes, or JSON decisions>
+
+| Hook | Event | Matcher | Purpose | Prevention or detection | Verified |
+|---|---|---|---|---|---|
+| | | | | | |
+
+The `Verified` column takes a date and what you saw. An entry without one is a
+hook nobody has provoked, which is a wish rather than a control.
+
+## Known bypasses
+
+- <what gets through, and the structural fix, and whether you applied it>
+
+## Failure behaviour, measured
+
+<paste your prediction-versus-observed table from Task B here>
+
+## Timeouts
+
+<which hooks carry an explicit timeout, and why that number>
+
+## Who reviews these
+
+<these scripts run automatically, as you, on every session. Say who reads them
+before they land.>

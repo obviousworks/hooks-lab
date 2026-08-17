@@ -1,0 +1,15 @@
+{
+  "session_id": "lab-0001",
+  "cwd": "/repo",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "src/cart.js"
+  },
+  "tool_use_id": "toolu_lab0001",
+  "tool_response": {
+    "filePath": "src/cart.js",
+    "success": true
+  }
+}

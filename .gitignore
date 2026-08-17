@@ -1,0 +1,17 @@
+node_modules/
+
+# Hook logs. A raw hook payload can contain file contents, command arguments
+# and tool output, so this directory never belongs in git.
+.agent-logs/
+
+# Real secrets never live in the repo. .env.demo is the committed fake.
+.env
+.env.local
+
+# Task D scratch space
+config/local.json
+
+# Verify scratch
+src/_verify_lintfail.js
+src/_lint_break.js
+trainer/

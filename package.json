@@ -1,0 +1,15 @@
+{
+  "name": "hooks-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reference repository for the Hooks use case (Pillar 7, Security and Hooks)",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:file": "eslint",
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "eslint": "^9.18.0"
+  }
+}
