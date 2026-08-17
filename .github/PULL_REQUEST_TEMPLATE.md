@@ -6,15 +6,15 @@
 
 ## Evidence
 
+Preflight output (copilot --version, platform, etc):
+```
+```
+
 Tool-use log lines:
 ```
 ```
 
-First `ls` output (Task D):
-```
-```
-
-Second `ls` output (Task D):
+Both `ls` outputs from Task D (before and after):
 ```
 ```
 
@@ -28,21 +28,22 @@ Agent's reaction to lint gate:
 
 ## Success Criteria
 
-- [ ] You can name, from your own raw log, the exact field for the tool name and where content sits for `Write` versus `Edit`
-- [ ] The raw dump was deleted and `.agent-logs/` is gitignored
-- [ ] The Task B table has predictions filled in **before** the observations, all seven rows
-- [ ] You can explain what happens to stderr on exit 0, and why that matters for a warning hook
-- [ ] You can state what happens when a `PreToolUse` hook hangs, and how that differs from a crash
-- [ ] Five hooks exist in `.claude/settings.json`, committed, and `/hooks` shows all five
-- [ ] Every hook was provoked with a test that would have been safe if the hook had failed, and the log line is in the pull request
-- [ ] Every deny message is written for the model and names an alternative
-- [ ] The secret scanner was demonstrably too late on `PostToolUse`, and the file does not exist after the move to `PreToolUse`
-- [ ] One bypass of the command deny is documented, plus a `permissions.deny` entry or server-side control that closes it
-- [ ] The lint feedback reached the agent, and the agent's reaction is documented, whether it repaired the code or not
-- [ ] The commit gate refused a commit on **your own** codebase, with the refusal text quoted
+- [ ] Preflight output in the PR: CLI version, platform, route
+- [ ] You can say whether `toolArgs` is an object or a string in your setup, from your own log
+- [ ] Your normaliser handles all six probe shapes, and the three invalid ones produce a deny with a reason rather than silence
+- [ ] Every hook that inspects tool arguments uses the normalised `$args`. Stable top-level metadata such as `toolName` may be read directly
+- [ ] Task B part 1 has predictions written **before** observations, all eight rows
+- [ ] You can state what happens when a hook hangs, and how that differs from a crash
+- [ ] Five hooks exist, committed, and none mixes the two payload formats
+- [ ] Every hook was provoked with a test that would have been safe if the hook had failed
+- [ ] Your deny hooks return a reason the agent can act on, not a bare exit code
+- [ ] The secret scanner was demonstrably too late on `postToolUse`, and the file does not exist after the move
+- [ ] At least two bypasses documented, one of them a route the agent chose while honouring the rule
+- [ ] One bypass was addressed one rung up, with the result recorded
+- [ ] The lint feedback reached the agent and its reaction is documented, repaired or not
+- [ ] The commit gate refused a commit on **your own** codebase, refusal text quoted
 - [ ] `docs/agents/hooks.md` exists, prevention and detection labelled correctly, `Verified` dates filled
-- [ ] The Trifecta audit names one real weakness in your own setup and one measure
 
 ---
 
-Paste text, not screenshots.
+Text, not screenshots.

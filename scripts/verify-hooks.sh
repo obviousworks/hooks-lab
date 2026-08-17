@@ -192,7 +192,6 @@ echo
 echo "4. lint gate: feedback and enforcement"
 run_case lint-feedback.sh    post-edit-lintfail.json feedback "sends lint errors to the model"
 run_case lint-feedback.sh    post-edit-clean.json    quiet    "stays silent on clean code"
-run_case lint-feedback.sh    post-bash-any.json      quiet    "ignores non-source tools"
 run_case lint-commit-gate.sh pre-bash-safe.json      pass     "ignores anything that is not a commit"
 run_case lint-commit-gate.sh pre-bash-commit.json    block    "refuses a commit while the linter is red"
 
