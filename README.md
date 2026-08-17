@@ -112,7 +112,11 @@ because that bypass is real and Task C is about finding it.
 
 ## How to submit your work
 
-This repository is a template. Click **"Use this template"** to create your own private copy. Clone your copy, work on a branch, and open a PR against your own `main` when you are done. Bring the PR link to the weekly. The Trifecta audit in Task F names real security weaknesses in your working environment; a private repository keeps them there rather than shipping them to a shared space.
+This repository is a template. Click **"Use this template"** to create your own copy.
+
+**⚠️ Your copy must be private.** The Trifecta audit in Task F names real security weaknesses in your own working environment. A private repository keeps them there. If you accidentally make your copy public, delete it immediately and create a new one.
+
+Clone your private copy, work on a branch, and open a PR against your own `main` when you are done. Bring the PR link to the weekly.
 
 ---
 
