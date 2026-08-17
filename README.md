@@ -132,6 +132,18 @@ not touch your hooks or your configuration.
 
 ---
 
+## Troubleshooting
+
+- npm run lint fails immediately after cloning
+  - Run `npm install` and copy `.env` from `.env.demo` (`cp .env.demo .env`). The linter needs a clean baseline.
+
+- `jq: command not found`
+  - Install `jq`: `brew install jq` / `sudo apt install jq` / `winget install jqlang.jq`.
+
+- The `.env` file is missing
+  - Copy `.env.demo` to `.env`. Never put real secrets here; the file is gitignored.
+
+
 ## If something is wrong with the repository itself
 
 Say so in the weekly rather than working around it. A broken baseline wastes
