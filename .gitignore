@@ -15,3 +15,5 @@ config/local.json
 src/_verify_lintfail.js
 src/_lint_break.js
 trainer/
+.github/hooks/*.sh
+.github/hooks/hooks.json

@@ -136,3 +136,86 @@ not touch your hooks or your configuration.
 
 Say so in the weekly rather than working around it. A broken baseline wastes
 everybody's afternoon, and it has usually broken for all twelve of you.
+
+---
+
+## Known issue: which event actually enforces
+
+Read this before Task C. It will save you an evening.
+
+On the Copilot CLI version this cohort runs, a `preToolUse` hook **fires but its
+deny is not enforced**. The hook runs, you can prove it runs with a trace, and
+the tool call proceeds anyway. The documented shape
+
+```json
+{ "permissionDecision": "deny", "permissionDecisionReason": "..." }
+```
+
+has no effect there.
+
+The same logic on `permissionRequest`, with a different output shape, works:
+
+```json
+{ "behavior": "deny", "message": "..." }
+```
+
+Two things follow.
+
+**Measure it yourself rather than believing this note.** Versions differ, and
+this is exactly what Task B asks for. Register a trace hook that only records,
+on both events, and read the log:
+
+```bash
+cat > .github/hooks/trace-pre.sh <<'SCRIPT'
+#!/usr/bin/env bash
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+mkdir -p "$ROOT/.agent-logs"
+cat > /dev/null
+printf '%s  preToolUse fired\n' "$(date -u +%H:%M:%S)" >> "$ROOT/.agent-logs/hook-trace.log"
+echo '{}'
+exit 0
+SCRIPT
+chmod 755 .github/hooks/trace-pre.sh
+```
+
+An event that fires without enforcing is the most interesting row you will put in
+your Task B table. Write down what you saw.
+
+**Know what you give up by moving to `permissionRequest`.** It only fires when
+Copilot actually asks. If anyone has chosen "Yes, and don't ask again" for a
+command class, no prompt appears, no hook runs, and there is no gate. A control
+that hangs off a consent dialog disappears the moment somebody clicks "stop
+asking". That belongs in the known-bypasses section of your hook register.
+
+## Three things that cost the trainer three hours
+
+All three are silent. Nothing in the tool reports any of them.
+
+**A hook without the execute bit never runs.** `chmod +x` and then editing the
+file in an editor can drop the bit again. Check after every edit:
+
+```bash
+chmod 755 .github/hooks/*.sh
+ls -l .github/hooks/
+```
+
+Every `.sh` must show `-rwxr-xr-x`.
+
+**Hooks load at session start.** Editing a script or `hooks.json` in a running
+session changes nothing. Restart after every change.
+
+**The permission prompt is not your hook.** "Do you want to run this command?"
+comes from Copilot and appears with no hooks installed at all. Answer yes, and
+watch what happens after that. If you cancel at the prompt, the tool call never
+starts and your hook never gets to decide.
+
+## Protect your hooks from the agent
+
+Add this before you start, or an agent's own `git add -A` will commit your
+untracked hook files, and the next `git reset --hard` will delete them:
+
+```bash
+printf '.github/hooks/*.sh\n.github/hooks/hooks.json\n.agent-logs/\n' >> .gitignore
+```
+
+Gitignored files are never staged.
