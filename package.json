@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint src",
-    "lint:file": "eslint",
+    "lint:file": "eslint"
   },
   "devDependencies": {
     "eslint": "^9.18.0"

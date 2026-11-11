@@ -23,5 +23,5 @@ in `src/format.js`, composition in `src/index.js`.
 Those four rules are instructions. The model reads them, weighs them against
 everything else in its context, and usually follows them.
 
-Usually is the whole problem, and it is why this repository exists. Task C asks
-you to test how much these sentences are worth before you build anything.
+Usually is the whole problem, and it is why this repository exists. The use
+case asks you to test how much these sentences are worth.

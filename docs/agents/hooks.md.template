@@ -1,9 +1,11 @@
 # Hook register
 
 Copy this to `docs/agents/hooks.md` and fill it in as you go. Nobody, including
-you in three months, can read five shell scripts and reconstruct why they exist.
+you in three months, can read a folder of shell scripts and reconstruct why they
+exist.
 
-Payload format: <camelCase or PascalCase, Copilot only. Do not mix.>
+Tool and version: <Claude Code, GitHub Copilot CLI or OpenAI Codex CLI, and the version you measured>
+Payload format: <Copilot only: camelCase or PascalCase. Do not mix.>
 Interface: <exit codes, or JSON decisions>
 
 | Hook | Event | Matcher | Purpose | Prevention or detection | Verified |
@@ -15,11 +17,11 @@ hook nobody has provoked, which is a wish rather than a control.
 
 ## Known bypasses
 
-- <what gets through, and the structural fix, and whether you applied it>
+- <what gets through, the control outside the hook that closes it, and whether you applied it>
 
 ## Failure behaviour, measured
 
-<paste your prediction-versus-observed table from Task B here>
+<paste both tables from Task B here: the failure table, and whether your gate ran without a human>
 
 ## Timeouts
 

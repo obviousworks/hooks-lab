@@ -8,12 +8,10 @@ node_modules/
 .env
 .env.local
 
-# Task D scratch space
+# Scratch file from the secret experiment in the compact version
 config/local.json
 
 # Verify scratch
 src/_verify_lintfail.js
 src/_lint_break.js
 trainer/
-.github/hooks/*.sh
-.github/hooks/hooks.json

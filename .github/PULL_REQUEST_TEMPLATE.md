@@ -1,48 +1,47 @@
 ## Which of my hooks prevent, and which only detect
 
-## What I predicted wrong in Task B
+## Which hook turned out weaker than I predicted
 
-## The bypass I found, and what closes it
+## The bypass I could only close outside the hook
 
 ## Evidence
 
-Preflight output (copilot --version, platform, etc):
+Tool, version and platform ("Before you start"):
 ```
 ```
 
-Tool-use log lines:
+The seven normaliser probe results (Task A):
 ```
 ```
 
-Both `ls` outputs from Task D (before and after):
+Lines from `.agent-logs/tool-use.log`:
 ```
 ```
 
-Refusal from own codebase (Task E step 4):
+Refusals from Task C, and what the control outside the hook did:
 ```
 ```
 
-Agent's reaction to lint gate:
+The agent's reaction to the commit gate (Task D):
 ```
 ```
 
-## Success Criteria
+Refusal from my own codebase (Task D, step 4):
+```
+```
 
-- [ ] Preflight output in the PR: CLI version, platform, route
-- [ ] You can say whether `toolArgs` is an object or a string in your setup, from your own log
-- [ ] Your normaliser handles all six probe shapes, and the three invalid ones produce a deny with a reason rather than silence
-- [ ] Every hook that inspects tool arguments uses the normalised `$args`. Stable top-level metadata such as `toolName` may be read directly
+## Success criteria
+
+- [ ] "Before you start" output in the PR: tool, version, platform
+- [ ] I can say in which shape my tool sends tool arguments, from my own log
+- [ ] My normaliser returns a command for the four valid probes and refuses the three invalid ones with a reason
 - [ ] Task B part 1 has predictions written **before** observations, all eight rows
-- [ ] You can state what happens when a hook hangs, and how that differs from a crash
-- [ ] Five hooks exist, committed, and none mixes the two payload formats
-- [ ] Every hook was provoked with a test that would have been safe if the hook had failed
-- [ ] Your deny hooks return a reason the agent can act on, not a bare exit code
-- [ ] The secret scanner was demonstrably too late on `postToolUse`, and the file does not exist after the move
-- [ ] At least two bypasses documented, one of them a route the agent chose while honouring the rule
-- [ ] One bypass was addressed one rung up, with the result recorded
-- [ ] The lint feedback reached the agent and its reaction is documented, repaired or not
-- [ ] The commit gate refused a commit on **your own** codebase, refusal text quoted
-- [ ] `docs/agents/hooks.md` exists, prevention and detection labelled correctly, `Verified` dates filled
+- [ ] I can state what my tool does when a hook hangs, and how that differs from a crash
+- [ ] My Task B part 2 table says whether my gate ran without a human
+- [ ] At least two bypasses documented, one of them a route the agent chose while keeping the rule
+- [ ] One bypass was addressed by a control outside the hook, with the result recorded, including any way around it I found
+- [ ] The agent's reaction to the commit gate is recorded as one of the four outcomes, and the gate refused a commit in my own codebase
+- [ ] `docs/agents/hooks.md` exists with `Verified` dates, and my Trifecta audit names one weakness and one measure
 
 ---
 

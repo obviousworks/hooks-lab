@@ -1,0 +1,14 @@
+{
+  "session_id": "lab-0001",
+  "transcript_path": null,
+  "cwd": "/repo",
+  "hook_event_name": "PreToolUse",
+  "model": "lab-model",
+  "permission_mode": "default",
+  "turn_id": "turn-0001",
+  "tool_name": "apply_patch",
+  "tool_use_id": "call_lab0001",
+  "tool_input": {
+    "command": "*** Begin Patch\n*** Add File: config/local.json\n+{ \"apiKey\": \"${SHOP_API_KEY}\" }\n*** End Patch\n"
+  }
+}
