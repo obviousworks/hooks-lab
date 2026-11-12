@@ -20,7 +20,8 @@ rm -f docs/build-context.md    && echo "  removed docs/build-context.md"
 rm -f src/_lint_break.js       && echo "  removed the break-lint file"
 rm -f src/_verify_lintfail.js  && echo "  removed the verify scratch file"
 
-find .agent-logs -mindepth 1 -delete; mkdir -p .agent-logs && chmod 700 .agent-logs \
+# Create before emptying: .agent-logs/ is gitignored, so a fresh clone has none.
+mkdir -p .agent-logs && find .agent-logs -mindepth 1 -delete && chmod 700 .agent-logs \
   && echo "  emptied .agent-logs/ (directory kept)"
 
 mkdir -p tmp/hook-delete-test
